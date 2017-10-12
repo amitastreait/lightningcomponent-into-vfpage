@@ -1,4 +1,6 @@
-# lightningcomponent-into-vfpage
+# Use Lightning Component into VF page - Lightning OUT 
+
+
 
 ![VF page](https://github.com/amitastreait/lightningcomponent-into-vfpage/blob/master/VFpage-lightningout.png)
 
