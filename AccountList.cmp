@@ -1,0 +1,59 @@
+<aura:component controller="AccountController">
+    
+    <!-- List of Accounts to hold all the list of Accounts -->
+    
+    <aura:attribute name="accounts" type="Account[]"/>
+    <!-- In this variable we will set the value form VF page -->
+    <aura:attribute name="VFpageValue" type="String" default="This is Litghning Component"/>
+    
+    <!-- Init method works as constructor for Lightning Component -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-page-header">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-account" title="Account Header">
+                        <lightning:icon iconName="standard:account" size="large" alternativeText="Account"/>
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Lightning Component Into VF page">
+                    Lightning Component Into VF page
+                </h1>
+                <p class="slds-text-body_small slds-line-height_reset">Lightning OUT - True Power of Lightning!</p>
+            </div>
+        </div>
+    </div>
+    Message From VF page : {!v.VFpageValue} <br/>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">
+                        Account Name
+                    </div>
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of Accounts and show the Account Name -->
+            <aura:iteration items="{!v.accounts}" var="account">
+                <tr>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="{!account.Name}">
+                            <lightning:card footer="" iconName="standard:account" > 
+                                <aura:set attribute="title">
+                                    {!account.Name}
+                                </aura:set>
+                                <!-- actions and body markup here -->
+                            </lightning:card>
+                        </div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>  
+    
+</aura:component>
